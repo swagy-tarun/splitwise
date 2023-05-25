@@ -6,12 +6,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
 @Data
+@EqualsAndHashCode(of = {"id"})
 public class Transaction {
 
     private @Id

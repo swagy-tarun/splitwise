@@ -16,12 +16,13 @@ public class UserController {
 
     @PostMapping("/user")
     public ResponseEntity<AppUser> create(@RequestBody String name) {
+        // TODO Spring validation framework to be used
         if (name == null || name.trim().isBlank()) {
             return ResponseEntity.badRequest().build();
         }
         AppUser appUser = new AppUser();
         appUser.setName(name);
-        appUser = userRepository.save(appUser);
+        userRepository.save(appUser);
 
         return ResponseEntity.ok(appUser);
     }

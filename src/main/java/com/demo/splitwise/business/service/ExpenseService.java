@@ -62,13 +62,16 @@ public class ExpenseService {
                 = splitServiceLocator.getStrategy(expenseRequest.getShareMethod());
         final List<UserShare> userShares = new ArrayList<>();
 
+        //  TODO Error handling for user not found
         expenseRequest.getUserShares().forEach(shareInfo -> {
             UserShare userShare = new UserShare(UUID.randomUUID(),
                     userRepository.findById(shareInfo.getUserId()).get(), shareInfo.getShare());
             userShares.add(userShare);
         });
+
         final Map<String, Transaction> transactions = splitStrategy.split(expense, userShares);
 
+        // TODO DTO required to prepare the clean response for this method
         expense.setTransactions(transactionRepository.saveAll(transactions.values()));
         return expense;
     }
