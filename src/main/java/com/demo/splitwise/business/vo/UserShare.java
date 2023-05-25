@@ -1,6 +1,6 @@
-package com.demo.splitwise.service.vo;
+package com.demo.splitwise.business.vo;
 
-import com.demo.splitwise.model.User;
+import com.demo.splitwise.infrastructure.model.AppUser;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -11,6 +11,6 @@ import java.util.UUID;
 @AllArgsConstructor
 public class UserShare {
     UUID id;
-    User user;
+    AppUser user;
     BigDecimal share;
 }

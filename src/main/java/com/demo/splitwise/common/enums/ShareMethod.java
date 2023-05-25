@@ -1,4 +1,4 @@
-package com.demo.splitwise.enums;
+package com.demo.splitwise.common.enums;
 
 public enum ShareMethod {
 

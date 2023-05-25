@@ -1,10 +1,11 @@
 package com.demo.splitwise.service.split;
 
-import com.demo.splitwise.enums.ShareMethod;
-import com.demo.splitwise.model.Expense;
-import com.demo.splitwise.model.Transaction;
-import com.demo.splitwise.model.User;
-import com.demo.splitwise.service.vo.UserShare;
+import com.demo.splitwise.business.split.EqualSplitStrategy;
+import com.demo.splitwise.common.enums.ShareMethod;
+import com.demo.splitwise.infrastructure.model.Expense;
+import com.demo.splitwise.infrastructure.model.Transaction;
+import com.demo.splitwise.infrastructure.model.AppUser;
+import com.demo.splitwise.business.vo.UserShare;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -31,21 +32,21 @@ class EqualSplitStrategyTest {
         userShares = new ArrayList<>();
         strategy = new EqualSplitStrategy();
 
-        User user1 = new User();
-        user1.setId("1");
+        AppUser user1 = new AppUser();
+        user1.setId(1l);
         user1.setName("Tarun");
-        User user2 = new User();
-        user2.setId("2");
+        AppUser user2 = new AppUser();
+        user2.setId(2l);
         user2.setName("Divya");
-        User user3 = new User();
-        user3.setId("3");
+        AppUser user3 = new AppUser();
+        user3.setId(3l);
         user3.setName("Sanjay");
-        User user4 = new User();
-        user4.setId("4");
+        AppUser user4 = new AppUser();
+        user4.setId(4l);
         user4.setName("Firoz");
 
         expense.setAmount(new BigDecimal(1000));
-        expense.setId("1");
+        expense.setId(UUID.randomUUID());
         expense.setDescription("Expense for Lift AMC");
         expense.setUpdatedAt(LocalDateTime.now());
         expense.setOwner(user1);

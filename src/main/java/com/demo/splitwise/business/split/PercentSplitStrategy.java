@@ -1,13 +1,15 @@
-package com.demo.splitwise.service.split;
+package com.demo.splitwise.business.split;
 
-import com.demo.splitwise.enums.ShareMethod;
-import com.demo.splitwise.model.Expense;
-import com.demo.splitwise.model.Transaction;
-import com.demo.splitwise.service.vo.UserShare;
+import com.demo.splitwise.common.enums.ShareMethod;
+import com.demo.splitwise.infrastructure.model.Expense;
+import com.demo.splitwise.infrastructure.model.Transaction;
+import com.demo.splitwise.business.vo.UserShare;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.*;
 
+@Component
 public class PercentSplitStrategy implements SplitStrategy<Map<String, Transaction>, List<UserShare>> {
 
     @Override
